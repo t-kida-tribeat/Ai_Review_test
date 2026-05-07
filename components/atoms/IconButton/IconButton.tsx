@@ -1,11 +1,15 @@
 "use client";
 
-import type { ButtonHTMLAttributes } from "react";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 
 type Variant = "primary" | "secondary" | "outline" | "ghost" | "danger" | "success" | "warning";
 type Size = "sm" | "md" | "lg";
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+type IconButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  /** アイコン要素 */
+  icon: ReactNode;
+  /** スクリーンリーダー向けラベル（必須） */
+  label: string;
   variant?: Variant;
   size?: Size;
 };
@@ -28,22 +32,26 @@ const variantStyles: Record<Variant, string> = {
 };
 
 const sizeStyles: Record<Size, string> = {
-  sm: "px-3 py-1.5 text-sm",
-  md: "px-4 py-2 text-base",
-  lg: "px-6 py-3 text-lg",
+  sm: "size-8 text-sm",
+  md: "size-10 text-base",
+  lg: "size-12 text-lg",
 };
 
-export function Button({
-  variant = "primary",
+export function IconButton({
+  icon,
+  label,
+  variant = "ghost",
   size = "md",
   type = "button",
   className = "",
-  children,
   disabled,
   ...props
-}: ButtonProps) {
+}: IconButtonProps) {
   return (
     <button
+      aria-label={label}
+      type={type}
+      disabled={disabled}
       className={[
         "inline-flex items-center justify-center rounded-md font-medium transition-colors",
         "focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-zinc-900 dark:focus-visible:ring-white",
@@ -54,11 +62,9 @@ export function Button({
       ]
         .filter(Boolean)
         .join(" ")}
-      disabled={disabled}
-      type={type}
       {...props}
     >
-      {children}
+      {icon}
     </button>
   );
 }

@@ -1,11 +1,9 @@
-"use client";
-
-import type { ButtonHTMLAttributes } from "react";
+import type { AnchorHTMLAttributes } from "react";
 
 type Variant = "primary" | "secondary" | "outline" | "ghost" | "danger" | "success" | "warning";
 type Size = "sm" | "md" | "lg";
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+type LinkButtonProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   variant?: Variant;
   size?: Size;
 };
@@ -33,32 +31,28 @@ const sizeStyles: Record<Size, string> = {
   lg: "px-6 py-3 text-lg",
 };
 
-export function Button({
+export function LinkButton({
   variant = "primary",
   size = "md",
-  type = "button",
   className = "",
   children,
-  disabled,
   ...props
-}: ButtonProps) {
+}: LinkButtonProps) {
   return (
-    <button
+    <a
       className={[
         "inline-flex items-center justify-center rounded-md font-medium transition-colors",
         "focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-zinc-900 dark:focus-visible:ring-white",
-        "disabled:pointer-events-none disabled:opacity-50",
+        "cursor-pointer select-none",
         variantStyles[variant],
         sizeStyles[size],
         className,
       ]
         .filter(Boolean)
         .join(" ")}
-      disabled={disabled}
-      type={type}
       {...props}
     >
       {children}
-    </button>
+    </a>
   );
 }
