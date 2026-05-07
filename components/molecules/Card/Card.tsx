@@ -3,9 +3,13 @@ import type { HTMLAttributes } from "react";
 // ---------------------------------------------------------------------------
 // Card (container)
 // ---------------------------------------------------------------------------
+type CardVariant = "default" | "info" | "success" | "warning" | "danger";
+
 type CardProps = HTMLAttributes<HTMLDivElement> & {
   /** シャドウの強さ */
   shadow?: "none" | "sm" | "md" | "lg";
+  /** カラーバリアント */
+  variant?: CardVariant;
 };
 
 const shadowStyles: Record<NonNullable<CardProps["shadow"]>, string> = {
@@ -15,8 +19,22 @@ const shadowStyles: Record<NonNullable<CardProps["shadow"]>, string> = {
   lg: "shadow-lg",
 };
 
+const variantStyles: Record<CardVariant, string> = {
+  default:
+    "border-zinc-200 bg-white dark:border-zinc-700 dark:bg-zinc-900",
+  info:
+    "border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-950/40",
+  success:
+    "border-emerald-200 bg-emerald-50 dark:border-emerald-800 dark:bg-emerald-950/40",
+  warning:
+    "border-amber-200 bg-amber-50 dark:border-amber-700 dark:bg-amber-950/40",
+  danger:
+    "border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-950/40",
+};
+
 export function Card({
   shadow = "md",
+  variant = "default",
   className = "",
   children,
   ...props
@@ -24,7 +42,8 @@ export function Card({
   return (
     <div
       className={[
-        "rounded-xl border border-zinc-200 bg-white dark:border-zinc-700 dark:bg-zinc-900",
+        "rounded-xl border",
+        variantStyles[variant],
         shadowStyles[shadow],
         className,
       ]
