@@ -150,6 +150,16 @@ export default function HooksPage() {
         </p>
         <UseMemoDemo />
       </section>
+
+      {/* 次のページへ */}
+      <nav className="flex justify-end">
+        <Link
+          href="/hooks/use-callback"
+          className="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
+        >
+          次: useCallback →
+        </Link>
+      </nav>
     </div>
   );
 }
