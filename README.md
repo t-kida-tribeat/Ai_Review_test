@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ai_Review_test
 
-## Getting Started
+[Next.js](https://nextjs.org) を使用したプロジェクトです。
 
-First, run the development server:
+## 技術スタック
+
+| カテゴリ             | 技術                                         | バージョン |
+| -------------------- | -------------------------------------------- | ---------- |
+| フレームワーク       | [Next.js](https://nextjs.org)                | 16.2.5     |
+| UI ライブラリ        | [React](https://react.dev)                   | 19.2.4     |
+| 言語                 | [TypeScript](https://www.typescriptlang.org) | ^5         |
+| スタイリング         | [Tailwind CSS](https://tailwindcss.com)      | ^4         |
+| パッケージマネージャ | [pnpm](https://pnpm.io)                      | -          |
+| リンター             | [ESLint](https://eslint.org)                 | ^9         |
+
+## 開発環境のセットアップ
+
+依存パッケージをインストールします：
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+開発サーバーを起動します：
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+ブラウザで [http://localhost:3000](http://localhost:3000) を開くと結果を確認できます。
 
-## Learn More
+`app/page.tsx` を編集するとページがリアルタイムで更新されます。
 
-To learn more about Next.js, take a look at the following resources:
+## 利用可能なコマンド
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm dev      # 開発サーバーの起動
+pnpm build    # プロダクションビルド
+pnpm start    # プロダクションサーバーの起動
+pnpm lint     # リントチェック
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 参考リンク
 
-## Deploy on Vercel
+- [Next.js ドキュメント](https://nextjs.org/docs) - Next.js の機能と API について
+- [Next.js チュートリアル](https://nextjs.org/learn) - インタラクティブなチュートリアル
+- [Next.js GitHub リポジトリ](https://github.com/vercel/next.js)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## デプロイ
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) を使用するのが最も簡単です。
+
+詳細は [Next.js デプロイドキュメント](https://nextjs.org/docs/app/building-your-application/deploying) を参照してください。
