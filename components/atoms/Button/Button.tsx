@@ -30,6 +30,7 @@ const sizeStyles: Record<Size, string> = {
 export function Button({
   variant = "primary",
   size = "md",
+  type = "button",
   className = "",
   children,
   disabled,
@@ -48,6 +49,7 @@ export function Button({
         .filter(Boolean)
         .join(" ")}
       disabled={disabled}
+      type={type}
       {...props}
     >
       {children}
