@@ -1,4 +1,5 @@
 
+import Link from "next/link";
 import { Button } from "@/components/atoms/Button";
 import {
   Card,
@@ -12,6 +13,15 @@ import {
 export default function Home() {
   return (
     <div className="flex flex-col flex-1 items-center justify-center gap-12 bg-zinc-50 px-4 py-12 font-sans dark:bg-black">
+      {/* Hooks ガイドへのナビゲーション */}
+      <section className="flex flex-col items-center gap-3 w-full">
+        <p className="text-sm font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-widest">
+          Hooks ガイド
+        </p>
+        <Link href="/hooks">
+          <Button variant="outline">useMemo の説明ページへ →</Button>
+        </Link>
+      </section>
       {/* Card */}
       <section className="flex flex-col items-center gap-4 w-full">
         <p className="text-sm font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-widest">
